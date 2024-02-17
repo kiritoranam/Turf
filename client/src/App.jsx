@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Navbar from './components/Navbar'
 import Landing from './pages/Landing'
@@ -11,8 +11,13 @@ import Bookings from './pages/Bookings';
 import Grounds from './pages/Grounds';
 import Footer from './pages/Footer';
 import Signup from './pages/Signup';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    localStorage.clear()
+  }, [])
 
   return (
     <>

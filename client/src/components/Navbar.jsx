@@ -7,10 +7,10 @@ import toast from 'react-hot-toast';
 const Navbar = () => {
 
 	//global state
-	let isLogin = useSelector((state) => state.isLogin);
+	let { isLogin, loginData } = useSelector((state) => state);
 	isLogin = isLogin || localStorage.getItem('userId');
 
-	let user = localStorage.getItem("username");
+	// let user = localStorage.getItem("username");
 
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -59,7 +59,7 @@ const Navbar = () => {
 
 					</div>
 					<div className='flex items-center'>
-					{!isLogin &&
+						{!isLogin &&
 							<button className="bg-white text-black font-bold px-4 py-2 rounded-md hover:text-green-500 " onClick={handleSignup}>Signup</button>
 						}
 						{!isLogin &&
@@ -70,7 +70,7 @@ const Navbar = () => {
 								<div className="group relative cursor-pointer">
 									<div className="flex items-center justify-between space-x-5 bg-none px-2 rounded-sm">
 										<a className="menu-hover py-2 text-base font-medium text-white lg:mx-4 hover:text-green-500" onClick="">
-											Hi, {user}!
+											Hi, {loginData.username}!
 										</a>
 										<span>
 											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
